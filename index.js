@@ -10,12 +10,10 @@ let returnedRecipes;
 let firstRecipeToDisplay;
 let lastRecipeToDisplay;
 let totalRecipes;
-
 const youTubeApiKey = 'AIzaSyBZ7XLIPc0oHjQY3J9vd_3ipvRQO6QOZqs';
 const youTubeUrl = 'https://www.googleapis.com/youtube/v3/search';
 let youTubeClips;
 const youTubeClipArray = [];
-
 let waitingMessages = [
     "Whipping up some killer recipes. Sit tight!",
     "Get your apron ready. Delicious recipes are on the way!",
@@ -23,7 +21,6 @@ let waitingMessages = [
     "Buckle up for a party in your kitchen. Recipes are on the way!",
     "Please wait while a team of personal chefs prepares your recipes. Just kidding, it's only robots."
 ];
-
 let chefGifs = [
     "chef0",
     "chef1",
@@ -228,7 +225,7 @@ function additionalResultsLog() {
     watchForRecipeClick();
 }
 
-//display the recipe results
+//determine which results to display
 function logResults() {
     firstRecipeToDisplay = lastRecipeToDisplay;
     lastRecipeToDisplay = lastRecipeToDisplay + 10;
