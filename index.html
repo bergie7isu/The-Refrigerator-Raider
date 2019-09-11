@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Refrigerator Raider Recipe Search App!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="An asynchronous and interactive app that provides recipes and videos based on the user's ingredient inputs.">
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800|Oswald&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="app-title">
+            <h1 class="main-title small">The Refrigerator Raider</h1>
+            <img class="logo pirate" src="images/pirate.ico" alt="Pirate Icon">
+            <div class="sub-title-wrapper">
+                <h1 class="main-title big">The Refrigerator Raider</h1>
+                <h3 class="sub-title">Use your extra ingredients.</h3>
+                <h5 class="sub-sub-title">Because throwing food away is lame.</h5>
+            </div>
+            <img class="logo fridge" src="images/fridge.png" alt="Refrigerator Icon">
+        </header>
+        <form>
+            <fieldset>
+                <label for="requested-ingredients">What ingredients do you have?</label>
+                <input id="requested-ingredients" type="text" placeholder="onion, rice, peanut butter, ham..." required>
+                <div class="clear-wrapper">
+                    <button type="reset" class="clear-ingredients orange-button">X</button>
+                </div>
+                <h6 class="input-instructions">(separate multiple ingredients with a comma)</h6>
+                <button class="find-recipes orange-button" type="submit">Find Recipes!</button>
+            </fieldset>
+        </form>
+        <section class="results hidden"></section>
+        <section class="no-more-recipes hidden">We're all out of recipes! Maybe stop being such a picky food diva?</section>
+        <button class="load-more-recipes orange-button hidden">Nothing looks good yet.<br>Show me more!</button>
+        <footer>Powered by the Edamam and YouTube APIs</footer>
+    </body>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <script src="index.js"></script>
+</html>

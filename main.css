@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+html {
+    background-image: url("images/background_mercury.jpg");
+    background-attachment: fixed;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #629CFF;
+    z-index: 1;
+    padding: 5px;
+    text-align: center;
+    min-width: 320px;
+    border-bottom: 1px solid black;
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.main-title.big {
+    display: none;
+}
+
+.sub-title-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sub-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.sub-sub-title {
+    font-size: 13px;
+}
+
+.logo {
+    width: 50px;
+    vertical-align: middle;
+}
+
+body {
+    background-color: #D2D0D6;
+}
+
+fieldset {
+    border: none;
+    text-align: center;
+}
+
+label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.find-recipes, .load-more-recipes {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
+}
+
+.orange-button {
+    background-color: #FF7111;
+    border-radius: 5px;
+    border-color: #A2A0A3;
+    transition-duration: 0.4s;
+}
+
+.orange-button:hover {
+    background-color: #FF440D;
+    cursor: pointer;
+}
+
+input {
+    width: 60%;
+    height: 35px;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    border-color: #A2A0A3;
+}
+
+.clear-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+}
+
+.clear-ingredients {
+    position: absolute;
+    transform: translate(0,-50%);
+    width: 25px;
+    font-size: 16px;
+}
+
+.input-instructions {
+    font-size: 10px;
+}
+
+h1, h3, h4, h5, h6, label {
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #A2A0A3;
+    font-size: 14px;
+    border-top: 1px solid black;
+}
+
+.results {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.waiting-on-api {
+    width: 80%;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chef-gif {
+    border-radius: 20px;
+    width: 90%;
+}
+
+.results-title {
+    padding-top: 10px;
+    background-color: #2C3EEB;
+    color: #D2D0D6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.results-subtitle {
+    padding-bottom: 10px;
+    border-bottom: 1px black solid;
+    background-color: #2C3EEB;
+    color: #D2D0D6;
+    font-size: 14px;
+}
+
+.recipe-image {
+    width: 50%;
+}
+
+.recipe-title {
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.recipe {
+    display: flex;
+    align-items: center;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+}
+
+.recipe:hover:not(.clicked-recipe) {
+    cursor: pointer;
+    background-color: #FF440D;
+}
+
+.big-result {
+    border-bottom: 1px black solid;
+}
+
+.clicked-recipe {
+    flex-direction: column-reverse;
+    padding-bottom: 10px;
+}
+
+.clicked-recipe .recipe-image {
+    width: 95%;
+}
+
+.clicked-recipe .recipe-title {
+    width: 95%;
+    font-size: 20px;
+}
+
+.youtube-image {
+    width: 100%;
+}
+
+.youtube-clips-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.youtube-clip {
+    width: 47.5%;
+    display: inline-block;
+    vertical-align: top;
+    transition-property: width;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in;
+}
+
+.youtube-clip:hover:not(.make-it-big) {
+    cursor: pointer;
+    width: 50%;
+}
+
+.make-it-big {
+    width: 95%;
+}
+
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.youtube-embed {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.play-icon {
+    position: absolute;
+    width: 25%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.youtube-embed-caption {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.no-more-recipes {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #2C3EEB;
+    color: #D2D0D6;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.recipe-details {
+    text-align: center;
+}
+
+.recipe-detail-header, .youtube-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.ingredient-list {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+.ingredient {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+}
+
+.recipe-link {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .main-title.big {
+        display: block;
+    }
+
+    .main-title.small {
+        display: none;
+    }
+
+    .main-title {
+        font-size: 30px;
+    }
+        
+    .sub-title {
+        font-size: 20px;
+    }
+    
+    .sub-sub-title {
+        font-size: 16px;
+    }
+    
+    .logo {
+        width: 75px;
+    }
+
+    label {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .find-recipes, .load-more-recipes {
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 24px;
+    }
+    
+    .orange-button {
+        border-radius: 10px;
+    }
+    
+    input {
+        width: 50%;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    
+    .clear-ingredients {
+        width: 30px;
+        font-size: 18px;
+    }
+    
+    .input-instructions {
+        font-size: 14px;
+    }
+    
+    footer {
+        font-size: 16px;
+    }
+
+    .waiting-on-api {
+        width: 60%;
+        font-size: 22px;
+    }
+    
+    .chef-gif {
+        border-radius: 30px;
+        width: 60%;
+    }
+    
+    .results-title {
+        padding-top: 10px;
+        font-size: 28px;
+    }
+    
+    .results-subtitle {
+        font-size: 18px;
+    }
+    
+    .recipe-image {
+        width: 40%;
+    }
+
+    .recipe-title {
+        width: 60%;
+        font-size: 22px;
+    }
+    
+    .clicked-recipe .recipe-image {
+        width: 85%;
+    }
+    
+    .clicked-recipe .recipe-title {
+        width: 85%;
+        font-size: 26px;
+    }
+    
+    .make-it-big {
+        width: 90%;
+    }
+        
+    .youtube-embed-caption {
+        font-size: 16px;
+    }
+    
+    .no-more-recipes {
+        font-size: 22px;
+    }
+    
+    .no-results {
+        font-size: 22px;
+    }
+    
+    .recipe-detail-header, .youtube-header {
+        font-size: 22px;
+    }
+        
+    .ingredient {
+        width: 85%;
+        font-size: 18px;
+    }
+    
+    .recipe-link {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .youtube-clip {
+        width: 22.5%;
+    }
+
+    .youtube-clip:hover:not(.make-it-big) {
+        width: 25%;
+    }
+
+    .make-it-big {
+        width: 90%;
+    }
+
+    .youtube-clips-flex {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header {
+        max-width: 1000px;
+    }
+
+    footer {
+        max-width: 1000px;
+    }
+
+    .main-title {
+        font-size: 36px;
+    }
+        
+    .sub-title {
+        font-size: 24px;
+    }
+    
+    .sub-sub-title {
+        font-size: 18px;
+    }
+    
+    .logo {
+        width: 100px;
+    }
+
+    label {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+    
+    .find-recipes, .load-more-recipes {
+        font-size: 28px;
+    }
+        
+    input {
+        height: 45px;
+        font-size: 22px;
+    }
+    
+    .clear-ingredients {
+        font-size: 22px;
+    }
+    
+    .input-instructions {
+        font-size: 16px;
+    }
+    
+    .waiting-on-api {
+        width: 50%;
+        font-size: 26px;
+    }
+    
+    .chef-gif {
+        width: 40%;
+    }
+    
+    .results-title {
+        font-size: 32px;
+    }
+    
+    .results-subtitle {
+        font-size: 20px;
+    }
+    
+    .recipe-image {
+        width: 30%;
+    }
+    
+    .recipe-title {
+        width: 70%;
+        font-size: 28px;
+    }
+
+    .clicked-recipe .recipe-image {
+        width: 75%;
+    }
+    
+    .clicked-recipe .recipe-title {
+        width: 75%;
+        font-size: 32px;
+    }
+            
+    .youtube-embed-caption {
+        font-size: 20px;
+    }
+    
+    .no-more-recipes {
+        font-size: 26px;
+    }
+    
+    .no-results {
+        font-size: 26px;
+    }
+    
+    .recipe-detail-header, .youtube-header {
+        font-size: 26px;
+    }
+        
+    .ingredient {
+        width: 75%;
+        font-size: 22px;
+    }
+    
+    .recipe-link {
+        font-size: 26px;
+    }
+}
